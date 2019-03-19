@@ -2,3 +2,4 @@
 package-lock.json
 coverage/*
 /coverage 
+.coveralls.yml
