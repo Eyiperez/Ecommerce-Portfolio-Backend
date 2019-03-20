@@ -13,9 +13,11 @@ app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
 
 const sellerRouter = require('./routes/seller');
+const shopRouter = require('./routes/shop');
 
 
 app.use('/seller', sellerRouter);
+app.use('/shop', shopRouter);
 
 // app.post('/buyer', (req, res) => {
 //     if (isRequiredsNeeded(req.body)) {

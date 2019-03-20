@@ -1,5 +1,5 @@
 const {app,} = require('./app')
 
-app.listen(3085, () => {
-    console.log('listening on port: 3085')
+app.listen(3084, () => {
+    console.log('listening on port: 3084')
 });

@@ -22,7 +22,9 @@ CREATE TABLE products (
   name VARCHAR NOT NULL,
   price INT NOT NULL,
   image VARCHAR NOT NULL,
-  description VARCHAR NOT NULL
+  description VARCHAR NOT NULL,
+   category VARCHAR NOT NULL,
+   color VARCHAR NOT NULL
 );
 
 CREATE TABLE orders (
@@ -51,19 +53,19 @@ INSERT INTO shops (name, owner, description) VALUES
 ('Decorations Shop', 3, 'cheap, cool decorations');/* 3 */
 
 
-INSERT INTO products (shop_id, name, price, image, description) VALUES
-(1, 'Big balloon', 3, 'urlimage.com', 'giant balloon, pink, helium.'), 
-(1, 'Small balloon', 1, 'urlimage.com', 'yellow, air'),
-(1, 'One balloon', 10, 'urlimage.com', 'number 1 balloon, silver'),
-(1, 'Heart shape', 10, 'urlimage.com', 'red, helium'),
-(1, 'Star shape', 10, 'urlimage.com', 'gold, helium, cute balloon'),
-(2, 'Goodie bags', 30, 'urlimage.com', '12 goodie bags, kids party'),
-(2, 'Costume stickers', 15, 'urlimage.com', 'cool, funny stickers'),
-(2, 'Labels', 20, 'urlimage.com', '20 labels, handmade'),
-(2, 'Thank you notes', 40, 'urlimage.com', '20 thank you notes, hand painted, add your name'),
-(3, 'Center piece', 50, 'urlimage.com', 'unique, pink, baby shower'),
-(3, 'Happy Bday Banner', 15, 'urlimage.com', 'banner, 6ft long, color pink'),
-(3, 'Its a boy banner', 15, 'urlimage.com', 'banner, baby shower, blue');
+INSERT INTO products (shop_id, name, price, image, description, category, color) VALUES
+(1, 'Big balloon', 3, 'urlimage.com', 'giant balloon, pink, helium', 'babyshower', 'pink'), 
+(1, 'Small balloon', 1, 'urlimage.com', 'yellow, air', 'birthday', 'yellow'),
+(1, 'One balloon', 10, 'urlimage.com', 'number 1 balloon, silver', 'birthday', 'silver'),
+(1, 'Heart shape', 10, 'urlimage.com', 'red, helium', 'wedding', 'red'),
+(1, 'Star shape', 10, 'urlimage.com', 'gold, helium, cute balloon', 'graduation', 'gold'),
+(2, 'Goodie bags', 30, 'urlimage.com', '12 goodie bags, kids party','birthday', 'multi'),
+(2, 'Costume stickers', 15, 'urlimage.com', 'cool, funny stickers', 'wedding','multi'),
+(2, 'Labels', 20, 'urlimage.com', '20 labels, handmade','graduation', 'multi'),
+(2, 'Thank you notes', 40, 'urlimage.com', '20 thank you notes, hand painted, add your name', 'wedding','multi'),
+(3, 'Center piece', 50, 'urlimage.com', 'unique, pink, baby shower','birthday', 'pink'),
+(3, 'Happy Bday Banner', 15, 'urlimage.com', 'banner, 6ft long, color pink', 'birthday','pink'),
+(3, 'Its a boy banner', 15, 'urlimage.com', 'banner, baby shower, blue','babyshower','blue');
 
 INSERT INTO orders(buyer_name, address, email, payment_info) VALUES
 ('Erika', 'something, NY 10002', 'erika@email.com', '425345646'),
