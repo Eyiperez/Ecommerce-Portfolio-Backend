@@ -27,7 +27,7 @@ CREATE TABLE products (
    color VARCHAR NOT NULL
 );
 
-CREATE TABLE orders (
+CREATE TABLE buyers (
   id SERIAL PRIMARY KEY,
   buyer_name VARCHAR NOT NULL,
   address VARCHAR NOT NULL,
@@ -38,8 +38,9 @@ CREATE TABLE orders (
 CREATE TABLE order_item (
   id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
-  order_id INT REFERENCES orders(id) NOT NULL,
-  quantity INT NOT NULL
+  buyer_id INT REFERENCES buyers(id) NOT NULL,
+  quantity INT NOT NULL,
+  status VARCHAR NULL
 );
 
 INSERT INTO sellers (name, email) VALUES
@@ -67,13 +68,13 @@ INSERT INTO products (shop_id, name, price, image, description, category, color)
 (3, 'Happy Bday Banner', 15, 'urlimage.com', 'banner, 6ft long, color pink', 'birthday','pink'),
 (3, 'Its a boy banner', 15, 'urlimage.com', 'banner, baby shower, blue','babyshower','blue');
 
-INSERT INTO orders(buyer_name, address, email, payment_info) VALUES
+INSERT INTO buyers (buyer_name, address, email, payment_info) VALUES
 ('Erika', 'something, NY 10002', 'erika@email.com', '425345646'),
 ('Taq','something, NY 10002', 'taq@email.com', '45356366'),
 ('Mo', 'something, NY 10002', 'mo@email.com', '45323672');
 
-INSERT INTO order_item (product_id, order_id, quantity) VALUES
-(1, 1, 1),
-(9, 1, 1),
-(11, 2, 2),
-(2, 3, 1);
+INSERT INTO order_item (product_id, buyer_id, quantity, status) VALUES
+(1, 1, 1, 'not processed'),
+(9, 1, 1, 'processed'),
+(11, 2, 2, 'processed'),
+(2, 3, 1, 'not processed');

@@ -15,7 +15,7 @@ shopRouter.post('/', (req, res, next) => {
     })
 });
 
-//GET - READ
+//GET - READ SHOP BY ID
 shopRouter.get('/:id/', (req, res, next) => {
   const { id } = req.params;
 
@@ -28,7 +28,20 @@ shopRouter.get('/:id/', (req, res, next) => {
     })
 });
 
-//GET SHOP"S ORDERS
+//GET- SEARCH SHOP BY NAME
+shopRouter.get('/name', (req, res, next) => {
+  const { name } = req.query;
+
+  ShopService.searchShop(name)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
+//GET SHOP'S ORDERS
 shopRouter.get('/:id/orders', (req, res, next) => {
   const { id } = req.params;
 
@@ -83,6 +96,20 @@ shopRouter.put('/:id', (req, res, next) => {
   ShopService.update(name, description, id)
     .then(data => {
       res.json({ success: `Updated shop named ${name} with id ${id}` });
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
+//PUT - UPDATE ORDER STATUS
+shopRouter.put('/:id/orders', (req, res, next) => {
+  const { id } = req.params;
+  const { status, order_id } = req.body;
+
+  ShopService.putOrderStatus(id, status, order_id)
+    .then(data => {
+      res.json({ success: `Updated order with id ${id} with status ${status}` });
     })
     .catch(err => {
       next(err);
