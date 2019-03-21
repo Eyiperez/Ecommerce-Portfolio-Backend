@@ -15,11 +15,13 @@ app.use(bodyParser.json())
 const sellerRouter = require('./routes/seller');
 const shopRouter = require('./routes/shop');
 const buyerRouter = require('./routes/buyer');
+const productRouter = require('./routes/product');
 
 
 app.use('/seller', sellerRouter);
 app.use('/shop', shopRouter);
 app.use('/buyer', buyerRouter);
+app.use('/product', productRouter);
 
 // app.post('/buyer', (req, res) => {
 //     if (isRequiredsNeeded(req.body)) {
