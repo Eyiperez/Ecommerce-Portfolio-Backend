@@ -4,8 +4,8 @@ const isRequiredsNeeded = body => {
     const requireds = [
         isValidType(body, 'name', 'string'),
         isValidType(body, 'email', 'string'),
-        isValidType(body, 'password', 'string'),
-        isValidType(body, 'phone_number', 'string'),
+        isValidType(body, 'address', 'string'),
+        isValidType(body, 'payment_info', 'string'),
     ];
 
 

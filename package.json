@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "$(npm bin)/jest --coverage",
+    "seed:local": "cat seed.sql | psql",
+    "seed": "cat seed.sql | heroku pg:psql",
     "start": "node index.js",
     "write-coveralls": "rm -rf .coveralls.yml && echo \"repo_token:$COVERAGE_TOKEN\" >> .coveralls.yml"
   },

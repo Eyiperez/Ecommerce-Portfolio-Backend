@@ -5,11 +5,11 @@ test('it should pass', () => {
 
 
 // const request = require('supertest')
-// const {app,} = require('../app')
+// const {buyerRouter,} = require('../routes/buyer')
 
 // test('Passing in empty body returns 400', done => {
-//     request(app)
-//       .post('/buyer')
+//     request(buyerRouter)
+//       .post('/')
 //       .send({})
 //       .catch((response) => {
 //         expect(response.status).toBe(400);
@@ -18,13 +18,13 @@ test('it should pass', () => {
 // })
 
 // test('Passing in valid body returns 204', done => {
-//     request(app)
-//       .post('/buyer')
+//     request(buyerRouter)
+//       .post('/')
 //       .send({
 //         'name': 'a',
 //         'email': 'b',
-//         'password': 'c',
-//         'phone_number': 'd',
+//         'address': 'c',
+//         'payment_info': 'd',
 //       })
 //       .then((response) => {
 //         expect(response.status).toBe(204);
