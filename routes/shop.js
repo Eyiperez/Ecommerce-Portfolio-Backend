@@ -29,8 +29,8 @@ shopRouter.get('/:id/', (req, res, next) => {
 });
 
 //GET- SEARCH SHOP BY NAME
-shopRouter.get('/name', (req, res, next) => {
-  const { name } = req.query;
+shopRouter.get('/:name/all', (req, res, next) => {
+  const { name } = req.params;
 
   ShopService.searchShop(name)
     .then(data => {

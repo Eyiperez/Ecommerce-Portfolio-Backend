@@ -26,14 +26,15 @@ ShopService.read = (id) => {
 
 //SEARCH SHOP BY NAME
 ShopService.searchShop = (name) => {
+  const likeName = `%${name}%`
   const sql = `
   SELECT 
     *
   FROM shops
   WHERE
-    shops.name LIKE $[name]
+    shops.name LIKE $[likeName]
 `;
-  return db.one(sql, { name });
+  return db.any(sql, { likeName });
 }
 
 //GET ALL SHOP'S PRODUCTS

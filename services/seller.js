@@ -12,8 +12,11 @@ SellerService.create = (name, email) => {
 SellerService.read = (name) => {
     const sql = `
     SELECT 
-      *
+      sellers.*,
+      shops.name AS shop_name
     FROM sellers
+    JOIN shops
+    ON shops.owner = sellers.id
     WHERE
       sellers.name = $[name]
     `;

@@ -10,11 +10,9 @@ buyerRouter.post('/', (req, res, next) => {
   if (isRequiredsNeeded(req.body)) {
     res.status(400)
     res.send({
-      "msg": "some required valsues are missing",
+      "msg": "some required values are missing",
     })
   }
-  res.status(204)
-  res.send()
   BuyerService.create(name, email, address, payment_info)
     .then(data => {
       res.json({ success: `Created buyer named ${name} with generated ID: ${data.id}` });
@@ -23,6 +21,18 @@ buyerRouter.post('/', (req, res, next) => {
       next(err);
     })
 });
+
+//GET- READ BUYER WITH ORDERS INFO
+buyerRouter.get('/:name', (req, res, next) => {
+  const { name } = req.params;
+  BuyerService.read(name)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    })
+})
 
 
 module.exports = { buyerRouter, }

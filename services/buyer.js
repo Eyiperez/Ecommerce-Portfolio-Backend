@@ -8,7 +8,25 @@ BuyerService.create = (name, address, email, payment_info) => {
     return db.one(sql, { name, address, email, payment_info });
 }
 
-
+//READ BUYER WITh ORDERS INFO
+BuyerService.read = (name) => {
+    const sql = `
+    SELECT 
+    buyers.*,
+    order_item.id AS order_id,
+    order_item.product_id AS product_id,
+    products.name AS product_name,
+    products.price AS price
+  FROM buyers
+  INNER JOIN order_item
+  ON buyers.id= buyer_id
+  INNER JOIN products ON order_item.product_id = products.id
+  WHERE
+    buyers.buyer_name = $[name]
+    `;
+    return db.any(sql, {name});
+  }
+  
 
 
 module.exports = BuyerService;
