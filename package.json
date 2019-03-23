@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/jest --coverage",
+    "test": "$(npm bin)/jest --coverage && cat ./coverage/lcov.info | $(npm bin)/coveralls",
     "seed:local": "cat seed.sql | psql",
     "seed": "cat seed.sql | heroku pg:psql",
     "start": "node index.js",

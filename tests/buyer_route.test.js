@@ -5,7 +5,15 @@ test('it should pass', () => {
 
 
 // const request = require('supertest')
-// jest.mock('../services/buyer')
+// jest.mock('pg-promise')
+// const pg_promise = require("pg-promise")
+// pg_promise.mockImplementation(() => {
+//     return function() {
+//         return {
+//             any: () => Promise.resolve({'test': 1})
+//         }
+//     }
+// })
 // const { BuyerService, } = require('../services/buyer')
 // const { buyerRouter, } = require('../routes/buyer')
 
