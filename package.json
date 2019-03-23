@@ -10,8 +10,16 @@
     "start": "node index.js",
     "write-coveralls": "rm -rf .coveralls.yml && echo \"repo_token:$COVERAGE_TOKEN\" >> .coveralls.yml"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eyiperez/Ecommerce-Portfolio-Backend.git"
+  },
   "author": "Erika",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eyiperez/Ecommerce-Portfolio-Backend/issues"
+  },
+  "homepage": "https://github.com/Eyiperez/Ecommerce-Portfolio-Backend",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",

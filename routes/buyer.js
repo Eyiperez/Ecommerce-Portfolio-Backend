@@ -15,9 +15,11 @@ buyerRouter.post('/', (req, res, next) => {
   }
   BuyerService.create(name, email, address, payment_info)
     .then(data => {
+      res.status(200)
       res.json({ success: `Created buyer named ${name} with generated ID: ${data.id}` });
     })
     .catch(err => {
+      res.status(400)
       next(err);
     })
 });

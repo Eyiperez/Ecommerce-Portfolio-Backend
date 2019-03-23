@@ -29,4 +29,4 @@ BuyerService.read = (name) => {
   
 
 
-module.exports = BuyerService;
+module.exports = {BuyerService,}
