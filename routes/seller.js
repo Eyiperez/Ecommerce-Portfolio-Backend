@@ -4,9 +4,9 @@ const SellerService = require('../services/seller');
 
 // POST - CREATE
 sellerRouter.post('/', (req, res, next) => {
-    const {name, email} = req.body;
+    const {name, email, seller_id} = req.body;
   
-    SellerService.create(name, email)
+    SellerService.create(name, email, seller_id)
       .then(data => {
         res.json({success: `Created seller named ${name} with generated ID: ${data.id}`});
       })

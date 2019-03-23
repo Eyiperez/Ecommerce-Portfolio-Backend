@@ -6,7 +6,8 @@ CREATE DATABASE myecommerce;
 CREATE TABLE sellers (
   id SERIAL PRIMARY KEY,
   name VARCHAR UNIQUE NOT NULL,
-  email VARCHAR UNIQUE NOT NULL
+  email VARCHAR UNIQUE NOT NULL,
+  seller_id VARCHAR UNIQUE NOT NULL
 );
 
 CREATE TABLE shops (
@@ -44,9 +45,9 @@ CREATE TABLE order_item (
 );
 
 INSERT INTO sellers (name, email) VALUES
-('Tom', 'tom@email.com'), 
-('Sara', 'sara@email.com'), 
-('Luz', 'luz@email.com');
+('Tom', 'tom@email.com', '1234zxcv'), 
+('Sara', 'sara@email.com', '1234asdf'), 
+('Luz', 'luz@email.com', '1234qwer');
 
 INSERT INTO shops (name, owner, description) VALUES
 ('Balloon Shop', 1, 'the best prettiest balloons ever'), /* 1 */

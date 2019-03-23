@@ -3,9 +3,9 @@ const SellerService = {};
 
 
 //CREAT SELLER
-SellerService.create = (name, email) => {
-    const sql = `INSERT INTO sellers (name, email) VALUES ($[name], $[email]) RETURNING id;`;
-    return db.one(sql, {name, email});
+SellerService.create = (name, email, seller_id) => {
+    const sql = `INSERT INTO sellers (name, email, seller_id) VALUES ($[name], $[email], $[seller_id]) RETURNING id;`;
+    return db.one(sql, {name, email, seller_id});
   }
 
 //READ SELLER
