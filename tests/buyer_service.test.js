@@ -10,6 +10,7 @@ test('add buyer returns promise', done => {
             expect(db.one.mock.calls[0][1]).toEqual({ "address": "b", "email": "c", "name": "a", "payment_info": "d" });
             done()
         })
+        done()
 
 })
 
@@ -35,4 +36,5 @@ test('get buyer returns promise', done => {
             )
             done()
         })
+        done()
 })
