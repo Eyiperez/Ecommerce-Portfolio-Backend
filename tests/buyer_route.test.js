@@ -1,44 +1,58 @@
+const request = require('supertest')
 
-test('it should pass', () => {
-    expect(true).toBe(true);
+jest.mock('../routes/buyer')
+const { app, } = require('../app')
+const { buyerRouter, } = require('../routes/buyer')
+
+test('when making POST request to /buyer, if db query is successful, expect 200',  (done) => {
+  buyerRouter.post.mockImplementation(() => {
+    return Promise.resolve();
+  })
+  request(app)
+    .post('/buyer')
+    .then(response => {
+      expect(response.status).toBe(200)
+      done()
     })
+  done()
+})
 
+test('when making POST request to /buyer, if db query is NOT successful, expect 400', (done) => {
+  buyerRouter.post.mockImplementation(() => {
+    return Promise.reject();
+  })
+  request(app)
+    .post('/buyer')
+    .then(response => {
+      expect(response.status).toBe(400)
+      done()
 
-// const request = require('supertest')
-// jest.mock('pg-promise')
-// const pg_promise = require("pg-promise")
-// pg_promise.mockImplementation(() => {
-//     return function() {
-//         return {
-//             any: () => Promise.resolve({'test': 1})
-//         }
-//     }
-// })
-// const { BuyerService, } = require('../services/buyer')
-// const { buyerRouter, } = require('../routes/buyer')
+    })
+  done()
+})
 
+test('when making GET request to /buyer/:name, if db query is successful, expect 200', done => {
+  buyerRouter.get.mockImplementation(() => {
+      return Promise.resolve();
+  })
+  request(app)
+      .get('/buyer/:name')
+      .then(response => {
+          expect(response.status).toBe(200)
+          done()
+      })
+      done()
+})
 
-// test('when making POST request to /user, if db query is successful, expect 200', done => {
-//   BuyerService.create.mockImplementation(() => {
-//     return Promise.resolve();
-//   })
-//   request(buyerRouter)
-//     .post('/')
-//     .then(response => {
-//       expect(response.status).toBe(200)
-//       done()
-//     })
-// })
-
-// test('when making POST request to /user, if db query is NOT successful, expect 400', done => {
-//   BuyerService.create.mockImplementation(() => {
-//     return Promise.reject();
-//   })
-//   request(buyerRouter)
-//     .post('/')
-//     .then(response => {
-//       expect(response.status).toBe(400)
-//       done()
-
-//     })
-// })
+test('when making GET request to /buyer/:name, if db query is NOT successful, expect 400', done => {
+  buyerRouter.get.mockImplementation(() => {
+      return Promise.reject();
+  })
+  request(app)
+      .get('/buyer/:name')
+      .then(response => {
+          expect(response.status).toBe(400)
+          done()
+      })
+      done()
+})

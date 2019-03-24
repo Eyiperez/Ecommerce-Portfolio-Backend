@@ -1,6 +1,6 @@
 const {isValidType} = require('./validators')
 
-const isRequiredsNeeded = body => {
+const isRequiredsNeededBuyer = body => {
     const requireds = [
         isValidType(body, 'name', 'string'),
         isValidType(body, 'email', 'string'),
@@ -16,4 +16,4 @@ const isRequiredsNeeded = body => {
     return false;
 }
 
-module.exports = { isRequiredsNeeded, }
+module.exports = { isRequiredsNeededBuyer, }

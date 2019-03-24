@@ -2,12 +2,12 @@ const express = require('express');
 const buyerRouter = express.Router();
 const BuyerService = require('../services/buyer');
 
-const { isRequiredsNeeded, } = require('../services/utils')
+const { isRequiredsNeededBuyer, } = require('../services/utils')
 
 // POST - CREATE BUYER
 buyerRouter.post('/', (req, res, next) => {
   const { name, address, email, payment_info } = req.body;
-  if (isRequiredsNeeded(req.body)) {
+  if (isRequiredsNeededBuyer(req.body)) {
     res.status(400)
     res.send({
       "msg": "some required values are missing",
@@ -29,9 +29,11 @@ buyerRouter.get('/:name', (req, res, next) => {
   const { name } = req.params;
   BuyerService.read(name)
     .then(data => {
+      res.status(200)
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
       next(err);
     })
 })

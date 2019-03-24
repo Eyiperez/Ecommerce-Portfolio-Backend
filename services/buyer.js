@@ -22,7 +22,7 @@ BuyerService.read = (name) => {
   ON buyers.id= buyer_id
   INNER JOIN products ON order_item.product_id = products.id
   WHERE
-    buyers.buyer_name = $[name]
+    buyers.buyer_name = $[name];
     `;
     return db.any(sql, {name});
   }

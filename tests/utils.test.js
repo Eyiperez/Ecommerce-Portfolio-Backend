@@ -3,10 +3,10 @@
 //     expect(true).toBe(true);
 //     })
 
-const { isRequiredsNeeded, } = require('../services/utils')
+const { isRequiredsNeededBuyer, } = require('../services/utils')
 
 test('An empty body returns true', () => {
-    expect(isRequiredsNeeded({})).toBe(true)
+    expect(isRequiredsNeededBuyer({})).toBe(true)
 })
 
 test('A fully expected body returns false', () => {
@@ -18,5 +18,5 @@ test('A fully expected body returns false', () => {
     };
 
     // no required values are needed because body enocdes it!
-    expect(isRequiredsNeeded(mockValidBody)).toBe(false)
+    expect(isRequiredsNeededBuyer(mockValidBody)).toBe(false)
 })
