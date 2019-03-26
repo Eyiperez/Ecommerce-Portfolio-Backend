@@ -23,7 +23,7 @@ describe('testing the buyer service', () => {
 
         BuyerService.read(name)
             .then(_ => {
-                expect(db.any.mock.calls[0][0]).toBe(`
+                expect(db.one.mock.calls[0][0]).toBe(`
     SELECT 
     buyers.*,
     order_item.id AS order_id,

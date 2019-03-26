@@ -24,7 +24,7 @@ BuyerService.read = (name) => {
   WHERE
     buyers.buyer_name = $[name];
     `;
-  return db.any(sql, { name });
+  return db.one(sql, { name });
 }
 
 
