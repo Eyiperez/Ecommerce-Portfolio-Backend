@@ -23,6 +23,7 @@ buyerRouter.post('/', (req, res, next) => {
     .catch(err => {
       res.status(400)
       res.send({ success: false })
+      next()
     })
 });
 
@@ -37,6 +38,7 @@ buyerRouter.get('/:name', (req, res, next) => {
     .catch(err => {
       res.status(400)
       res.send({ success: false })
+      next()
     })
 })
 
