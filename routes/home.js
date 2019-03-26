@@ -13,4 +13,4 @@ homeRouter.get('', (req, res) => {
 });
 
 
-module.exports = homeRouter;
+module.exports = {homeRouter,};

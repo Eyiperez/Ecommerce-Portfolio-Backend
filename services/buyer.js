@@ -4,13 +4,13 @@ const BuyerService = {};
 
 //CREAT BUYER
 BuyerService.create = (name, address, email, payment_info) => {
-    const sql = `INSERT INTO buyers (buyer_name, address, email, payment_info) VALUES ($[name], $[address], $[email], $[payment_info]) RETURNING id;`;
-    return db.one(sql, { name, address, email, payment_info });
+  const sql = `INSERT INTO buyers (buyer_name, address, email, payment_info) VALUES ($[name], $[address], $[email], $[payment_info]) RETURNING id;`;
+  return db.one(sql, { name, address, email, payment_info });
 }
 
 //READ BUYER WITh ORDERS INFO
 BuyerService.read = (name) => {
-    const sql = `
+  const sql = `
     SELECT 
     buyers.*,
     order_item.id AS order_id,
@@ -24,9 +24,9 @@ BuyerService.read = (name) => {
   WHERE
     buyers.buyer_name = $[name];
     `;
-    return db.any(sql, {name});
-  }
-  
+  return db.any(sql, { name });
+}
 
 
-module.exports = {BuyerService,}
+
+module.exports = { BuyerService, }

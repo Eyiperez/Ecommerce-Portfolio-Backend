@@ -1,15 +1,12 @@
+const { isRequiredsNeededBuyer, isRequiredsNeededSeller, isRequiredsNeededUpdateSeller } = require('../services/utils')
 
-// test('it should pass', () => {
-//     expect(true).toBe(true);
-//     })
 
-const { isRequiredsNeededBuyer, } = require('../services/utils')
-
-test('An empty body returns true', () => {
+//TEST BUYER INPUT
+test('An empty buyer body returns true', () => {
     expect(isRequiredsNeededBuyer({})).toBe(true)
 })
 
-test('A fully expected body returns false', () => {
+test('A fully expected buyer body returns false', () => {
     const mockValidBody = {
         "name": "aaa",
         "email": "bbb",
@@ -19,4 +16,38 @@ test('A fully expected body returns false', () => {
 
     // no required values are needed because body enocdes it!
     expect(isRequiredsNeededBuyer(mockValidBody)).toBe(false)
+})
+
+//TEST SELLER INPUT
+
+test('An empty seller body returns true', () => {
+    expect(isRequiredsNeededSeller({})).toBe(true)
+})
+
+
+test('A fully expected seller body returns false', () => {
+    const mockValidBody = {
+        "name": "aaa",
+        "email": "bbb",
+        "seller_id": "ccc",
+    };
+
+    // no required values are needed because body enocdes it!
+    expect(isRequiredsNeededSeller(mockValidBody)).toBe(false)
+})
+
+//TEST SELLER UPDATE
+test('An empty  update seller body returns true', () => {
+    expect(isRequiredsNeededUpdateSeller({})).toBe(true)
+})
+
+
+test('A fully expected update seller body returns false', () => {
+    const mockValidBody = {
+        "name": "aaa",
+        "email": "bbb",
+    };
+
+    // no required values are needed because body enocdes it!
+    expect(isRequiredsNeededUpdateSeller(mockValidBody)).toBe(false)
 })

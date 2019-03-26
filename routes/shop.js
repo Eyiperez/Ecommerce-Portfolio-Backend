@@ -130,4 +130,4 @@ shopRouter.put('/:id/orders', (req, res, next) => {
 //   });
 
 
-module.exports = shopRouter;
+module.exports = {shopRouter,};

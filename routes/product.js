@@ -121,4 +121,4 @@ productRouter.delete('/:id', (req, res, next) => {
 });
 
 
-module.exports = productRouter;
+module.exports = {productRouter,};

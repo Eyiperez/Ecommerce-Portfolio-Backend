@@ -44,7 +44,7 @@ CREATE TABLE order_item (
   status VARCHAR NULL
 );
 
-INSERT INTO sellers (name, email) VALUES
+INSERT INTO sellers (name, email, seller_id) VALUES
 ('Tom', 'tom@email.com', '1234zxcv'), 
 ('Sara', 'sara@email.com', '1234asdf'), 
 ('Luz', 'luz@email.com', '1234qwer');
