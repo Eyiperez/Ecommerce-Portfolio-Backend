@@ -26,7 +26,8 @@ CREATE TABLE products (
   image VARCHAR NOT NULL,
   description VARCHAR NOT NULL,
    category VARCHAR NOT NULL,
-   color VARCHAR NOT NULL
+   color VARCHAR NOT NULL,
+   likes INT NULL
 );
 
 CREATE TABLE buyers (
