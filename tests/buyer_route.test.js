@@ -1,7 +1,7 @@
 const request = require('supertest')
 
 jest.mock('../services/buyer')
-const { BuyerService, } = require('../services/buyer');
+const BuyerService = require('../services/buyer');
 
 const { app, } = require('../app')
 
@@ -29,6 +29,7 @@ describe('testing the buyer service', () => {
         expect(data.body).toEqual({ success: `Created buyer named a with generated ID: test-id` })
         done()
       })
+   
   })
 
   it('when making POST request to /buyer, if db query is NOT successful, expect 400', (done) => {

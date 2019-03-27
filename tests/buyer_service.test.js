@@ -1,6 +1,6 @@
 jest.mock('../services/pgp')
 const { db, } = require('../services/pgp')
-const { BuyerService, } = require('../services/buyer')
+const BuyerService = require('../services/buyer')
 
 describe('testing the buyer service', () => {
     afterEach(() => {
@@ -23,7 +23,7 @@ describe('testing the buyer service', () => {
 
         BuyerService.read(name)
             .then(_ => {
-                expect(db.one.mock.calls[0][0]).toBe(`
+                expect(db.any.mock.calls[0][0]).toBe(`
     SELECT 
     buyers.*,
     order_item.id AS order_id,

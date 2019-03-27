@@ -24,9 +24,9 @@ BuyerService.read = (name) => {
   WHERE
     buyers.buyer_name = $[name];
     `;
-  return db.one(sql, { name });
+  return db.any(sql, { name });
 }
 
 
 
-module.exports = { BuyerService, }
+module.exports = BuyerService

@@ -1,6 +1,6 @@
 const express = require('express');
 const buyerRouter = express.Router();
-const { BuyerService, } = require('../services/buyer');
+const BuyerService = require('../services/buyer');
 
 const { isRequiredsNeededBuyer, } = require('../services/utils')
 
@@ -23,7 +23,7 @@ buyerRouter.post('/', (req, res, next) => {
     .catch(err => {
       res.status(400)
       res.send({ success: false })
-      next()
+
     })
 });
 
@@ -38,9 +38,9 @@ buyerRouter.get('/:name', (req, res, next) => {
     .catch(err => {
       res.status(400)
       res.send({ success: false })
-      next()
+
     })
 })
 
 
-module.exports = { buyerRouter, }
+module.exports = buyerRouter
