@@ -3,9 +3,9 @@ const ProductService = {};
 
 
 //CREAT PRODUCT
-ProductService.create = (shop_id, name, price, image, description, category, color) => {
-    const sql = `INSERT INTO products (shop_id, name, price, image, description, category, color) VALUES ($[shop_id], $[name], $[price], $[image], $[description], $[category], $[color]) RETURNING id;`;
-    return db.one(sql, { shop_id, name, price, image, description, category, color });
+ProductService.create = (shop_id, name, price, image, description, category, color, likes) => {
+    const sql = `INSERT INTO products (shop_id, name, price, image, description, category, color, likes) VALUES ($[shop_id], $[name], $[price], $[image], $[description], $[category], $[color], $[likes]) RETURNING id;`;
+    return db.one(sql, { shop_id, name, price, image, description, category, color, likes });
 }
 
 // READ PRODUCT 

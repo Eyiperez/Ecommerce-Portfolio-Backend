@@ -8,7 +8,7 @@ shopRouter.post('/', (req, res, next) => {
 
   ShopService.create(name, owner, description)
     .then(data => {
-      res.json({ success: `Created shop named ${name} with generated ID: ${data.id}` });
+      res.json({ success: `Created shop named ${name} with generated ID: ${data.id}`, id: data.id });
     })
     .catch(err => {
       next(err);
@@ -130,4 +130,4 @@ shopRouter.put('/:id/orders', (req, res, next) => {
 //   });
 
 
-module.exports = {shopRouter,};
+module.exports = shopRouter;

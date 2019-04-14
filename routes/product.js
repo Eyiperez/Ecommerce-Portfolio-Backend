@@ -4,11 +4,11 @@ const ProductService = require('../services/product');
 
 // POST - CREATE
 productRouter.post('/', (req, res, next) => {
-  const { shop_id, name, price, image, description, category, color } = req.body;
+  const { shop_id, name, price, image, description, category, color,likes } = req.body;
 
-  ProductService.create(shop_id, name, price, image, description, category, color)
+  ProductService.create(shop_id, name, price, image, description, category, color, likes)
     .then(data => {
-      res.json({ success: `Created product named ${name} with generated ID: ${data.id}` });
+      res.json({ success: `Created product named ${name} with generated ID: ${data.id}`, id: data.id });
     })
     .catch(err => {
       next(err);

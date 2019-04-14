@@ -11,15 +11,17 @@ ShopService.create = (name, owner, description) => {
 //READ SHOP
 ShopService.read = (id) => {
   const sql = `
-    SELECT 
-     shops.*,
-     sellers.name AS seller_name,
-     sellers.email AS seller_email
+  SELECT 
+    shops.*,
+    sellers.name AS seller_name,
+    sellers.email AS seller_email,
+    sellers.seller_photo AS seller_photo,
+    sellers.seller_id AS seller_id
     FROM shops
     JOIN sellers
     ON shops.owner = sellers.id
     WHERE
-     shops.id = $[id]
+    shops.id = $[id]
   `;
   return db.one(sql, { id });
 }
@@ -29,11 +31,17 @@ ShopService.searchShop = (name) => {
   const likeName = `%${name}%`
   const sql = `
   SELECT 
-    *
-  FROM shops
-  WHERE
+    shops.*,
+    sellers.name AS seller_name,
+    sellers.email AS seller_email,
+    sellers.seller_photo AS seller_photo,
+    sellers.seller_id AS seller_id
+    FROM shops
+    JOIN sellers
+    ON shops.owner = sellers.id
+    WHERE
     shops.name LIKE $[likeName]
-`;
+  `;
   return db.any(sql, { likeName });
 }
 

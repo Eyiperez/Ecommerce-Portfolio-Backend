@@ -6,17 +6,17 @@ const { isRequiredsNeededSeller, isRequiredsNeededUpdateSeller } = require('../s
 
 // POST - CREATE
 sellerRouter.post('/', (req, res, next) => {
-  const { name, email, seller_id } = req.body;
+  const { name, email, seller_id, seller_photo } = req.body;
   if (isRequiredsNeededSeller(req.body)) {
     res.status(400)
     res.send({
       "msg": "some required values are missing",
     })
   }
-  SellerService.create(name, email, seller_id)
+  SellerService.create(name, email, seller_id, seller_photo)
     .then(data => {
       res.status(200)
-      res.json({ success: `Created seller named ${name} with generated ID: ${data.id}` });
+      res.json({ success: `Created seller named ${name} with generated ID: ${data.id}`, id: data.id });
     })
     .catch(err => {
       res.status(400)
@@ -36,6 +36,21 @@ sellerRouter.get('/:name', (req, res, next) => {
     })
     .catch(err => {
       res.status(400)
+      res.send({ success: false })
+    })
+})
+
+//GET - SELLER BY EMAIL
+sellerRouter.get('/', (req, res, next) => {
+  const { email } = req.query;
+
+  SellerService.readByEmail(email)
+    .then(data => {
+      res.status(200)
+      res.json(data);
+    })
+    .catch(err => {
+      res.status(200)
       res.send({ success: false })
     })
 })

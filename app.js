@@ -13,8 +13,9 @@ app.use(bodyParser.json())
 
 const {homeRouter,} = require('./routes/home')
 const {sellerRouter,} = require('./routes/seller');
-const {shopRouter,} = require('./routes/shop');
+const shopRouter = require('./routes/shop');
 const buyerRouter = require('./routes/buyer');
+const orderRouter = require('./routes/order');
 const {productRouter,} = require('./routes/product');
 
 app.use('/', homeRouter);
@@ -22,6 +23,7 @@ app.use('/seller', sellerRouter);
 app.use('/shop', shopRouter);
 app.use('/buyer', buyerRouter);
 app.use('/product', productRouter);
+app.use('/order', orderRouter);
 
 
 module.exports = {
