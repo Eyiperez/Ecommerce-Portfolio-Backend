@@ -9,10 +9,10 @@ describe('testing the seller service', () => {
 
     it('add seller returns promise', done => {
         db.one.mockImplementation((...rest) => Promise.resolve())
-        SellerService.create('b', 'c', 'a')
+        SellerService.create('b', 'c', 'a', 'd')
             .then(_ => {
-                expect(db.one.mock.calls[0][0].replace(/\s+/g, ' ')).toBe(`INSERT INTO sellers (name, email, seller_id) VALUES ($[name], $[email], $[seller_id]) RETURNING id;`.replace(/\s+/g, ' '));
-                expect(db.one.mock.calls[0][1]).toEqual({ "name": "b", "email": "c", "seller_id": "a" });
+                expect(db.one.mock.calls[0][0].replace(/\s+/g, ' ')).toBe(`INSERT INTO sellers (name, email, seller_id, seller_photo) VALUES ($[name], $[email], $[seller_id], $[seller_photo]) RETURNING id;`.replace(/\s+/g, ' '));
+                expect(db.one.mock.calls[0][1]).toEqual({ "name": "b", "email": "c", "seller_id": "a", "seller_photo": "d" });
                 done()
             })
 

@@ -23,15 +23,16 @@ describe('testing the shop service', () => {
     })
 
     it('get shop returns promise', done => {
-        db.any.mockImplementation((...rest) => Promise.resolve())
+        db.one.mockImplementation((...rest) => Promise.resolve())
 
         ShopService.read(name)
             .then(_ => {
-                expect(db.any.mock.calls[0][0]).toBe(`
+                expect(db.one.mock.calls[0][0]).toBe(`
     SELECT 
     shops.*,
     sellers.name AS seller_name,
     sellers.email AS seller_email,
+    sellers.seller_photo AS seller_photo,
     sellers.seller_id AS seller_id
     FROM shops
     JOIN sellers

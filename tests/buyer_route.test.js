@@ -26,7 +26,7 @@ describe('testing the buyer service', () => {
       })
       .then(data => {
         expect(data.status).toBe(200)
-        expect(data.body).toEqual({ success: `Created buyer named a with generated ID: test-id` })
+        expect(data.body).toEqual({ success: `Created buyer named a with generated ID: test-id`, id: `test-id`})
         done()
       })
    

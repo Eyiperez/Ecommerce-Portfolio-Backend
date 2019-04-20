@@ -11,7 +11,7 @@ ShopService.create = (name, owner, description) => {
 //READ SHOP
 ShopService.read = (id) => {
   const sql = `
-  SELECT 
+    SELECT 
     shops.*,
     sellers.name AS seller_name,
     sellers.email AS seller_email,
