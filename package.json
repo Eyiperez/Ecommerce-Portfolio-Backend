@@ -8,7 +8,7 @@
     "seed:local": "cat seed.sql | psql",
     "seed": "cat seed.sql | heroku pg:psql",
     "start": "node index.js",
-    "write-coveralls": "rm -rf .coveralls.yml && echo \"repo_token:$repo_token\" >> .coveralls.yml"
+    "write-coveralls": "rm -rf .coveralls.yml && echo \"repo_token:$REPO_TOKEN_HERE\" >> .coveralls.yml"
   },
   "repository": {
     "type": "git",
