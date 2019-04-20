@@ -24,6 +24,8 @@ shopRouter.get('/:id/', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -37,6 +39,8 @@ shopRouter.get('/:name/all', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -50,6 +54,8 @@ shopRouter.get('/:id/orders', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -65,6 +71,8 @@ shopRouter.get('/:id/products', (req, res, next) => {
         res.json(data);
       })
       .catch(err => {
+        res.status(400)
+        res.send({ success: false })
         next(err);
       })
   }
@@ -74,6 +82,8 @@ shopRouter.get('/:id/products', (req, res, next) => {
         res.json(data);
       })
       .catch(err => {
+        res.status(400)
+        res.send({ success: false })
         next(err);
       })
   } else {
@@ -82,6 +92,8 @@ shopRouter.get('/:id/products', (req, res, next) => {
         res.json(data);
       })
       .catch(err => {
+        res.status(400)
+        res.send({ success: false })
         next(err);
       })
   }

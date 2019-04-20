@@ -4,7 +4,7 @@ const ProductService = require('../services/product');
 
 // POST - CREATE
 productRouter.post('/', (req, res, next) => {
-  const { shop_id, name, price, image, description, category, color,likes } = req.body;
+  const { shop_id, name, price, image, description, category, color, likes } = req.body;
 
   ProductService.create(shop_id, name, price, image, description, category, color, likes)
     .then(data => {
@@ -24,6 +24,8 @@ productRouter.get('/:id/', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -37,6 +39,8 @@ productRouter.get('/', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -50,6 +54,8 @@ productRouter.get('/:color/color', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -63,6 +69,8 @@ productRouter.get('/:category/category', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -76,6 +84,8 @@ productRouter.get('/:name/name', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -89,6 +99,8 @@ productRouter.get('/:description/description', (req, res, next) => {
       res.json(data);
     })
     .catch(err => {
+      res.status(400)
+      res.send({ success: false })
       next(err);
     })
 });
@@ -121,4 +133,4 @@ productRouter.delete('/:id', (req, res, next) => {
 });
 
 
-module.exports = {productRouter,};
+module.exports = { productRouter, };
