@@ -47,4 +47,3 @@ CREATE TABLE order_item (
   quantity INT NOT NULL,
   status VARCHAR NULL
 );
-
